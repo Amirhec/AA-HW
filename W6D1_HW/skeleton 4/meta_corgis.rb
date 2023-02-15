@@ -107,14 +107,17 @@ class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
     @box_id = box_id
+    
   end
 
   def method_missing(name, *args)
+
     
   end
 
 
   def self.define_snack(name)
-    # Your code goes here...
+    info = @snack_box.send("get_#{name}_info", @box_id)
+    tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
   end
 end
